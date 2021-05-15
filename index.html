@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>APOTEK AMANAH</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  </head>
+  <body>
+    
+    
+    <!-- header -->
+    <div class="medsos">
+      <div class="container">
+        <ul>
+          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li> 
+          <li><a href="#"><i class="fab fa-whatsapp"></i></a></li> 
+          <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <header>
+      <div class="container">
+        <h1><a href="index.html"><i class="fas fa-shopping-cart"></i>APOTEK AMANAH</a></h1>
+        <ul>
+          <li class="active"><a href="index.html"><i class="fas fa-home"></i>HOME</a></li>
+          <li><a href="about.html"><i class="fas fa-address-card"></i>ABOUT</a></li>
+          <li><a href="product.html"><i class="fab fa-shopify"></i>PRODUCT</a></li>
+          <li><a href="bukutamu.php"><i class="fas fa-address-book"></i>BUKU TAMU</a></li>
+          <li><a href="Detailproduk.php"><i class="fas fa-question-circle"></i>Detailproduk</a></li>
+        </ul>
+      </div>
+    </header>
+    
+    <!-- banner -->
+    <section class="banner">
+      <h2>PATUHI PROTOKOL KESEHATAN DEMI KELUARGA SEHAT</h2>
+    </section>
+    <h2 align="center">==== Tanggal dan Jam Digital ====</h2>
+    <h3 align="center" id="tanggal"></h3>
+    <div class="jam_digital">
+        <div class="kotak">
+            <p id="jam"></p>
+        </div>
+        <div class="kotak">
+            <p id="menit"></p>
+        </div>
+        <div class="kotak">
+            <p id="detik"></p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function validasi(){
+            var nama = document.getElementById("nama").value;
+            var alamat = document.getElementById("alamat").value;
+
+            var a1 = "Anda harus mengisi data ";
+            if (nama == ""){
+                a1 = a1 + "nama, ";
+                console.log("Tidak ada nama");
+            }
+            if (alamat == ""){
+                a1 = a1 + "alamat.";
+                console.log("Tidak ada alamat");
+            }
+            if (a1 == "Anda harus mengisi data "){
+                console.log("Data Anda Lengkap")
+                alert()
+            }else{
+                alert(a1)
+            }
+        }
+        // kalkulator
+        function fAdd(){
+            var a = document.forms["Kalkulator"]["fnilaiA"].value;
+            var b = document.forms["Kalkulator"]["fnilaiB"].value;
+            var c = Number(a) + Number(b);
+            document.getElementById("hasil").innerHTML=c;
+        }
+        function fMin(){
+            var a = document.forms["Kalkulator"]["fnilaiA"].value;
+            var b = document.forms["Kalkulator"]["fnilaiB"].value;
+            var c = Number(a) - Number(b);
+            document.getElementById("hasil").innerHTML=c;
+        }
+        function fKali(){
+            var a = document.forms["Kalkulator"]["fnilaiA"].value;
+            var b = document.forms["Kalkulator"]["fnilaiB"].value;
+            var c = Number(a) * Number(b);
+            document.getElementById("hasil").innerHTML=c;
+        }
+        function fBagi(){
+            var a = document.forms["Kalkulator"]["fnilaiA"].value;
+            var b = document.forms["Kalkulator"]["fnilaiB"].value;
+            var c = Number(a) / Number(b);
+            document.getElementById("hasil").innerHTML=c;
+        }
+        
+        // jam
+        var tgl = new Date();
+        document.getElementById("tanggal").innerHTML = "Waktu akses "+tgl;
+
+        window.setTimeout("waktu()", 1000);
+        function waktu(){
+            var waktu = new Date();
+            setTimeout("waktu()", 1000);
+            document.getElementById("jam").innerHTML = waktu.getHours();
+            document.getElementById("menit").innerHTML = waktu.getMinutes();
+            document.getElementById("detik").innerHTML = waktu.getSeconds();
+        }
+        // mengubah css
+        var i=0
+        function change(){
+            var classJamDigital = document.getElementsByClassName("jam_digital");
+            var color = ["BurlyWood", "DarkSalmon", "LightBlue", "RosyBrown", "YellowGreen"];
+
+            classJamDigital[0].style.backgroundColor = color[i];
+
+            i=(i+1)%color.length;
+        }
+        setInterval(change, 1000);
+    </script>
+        <footer>
+          <div class="container">
+            <marquee direction="left">Copyright &copy; 2020 - ReyhanVito.All Right Reserved..</marquee>
+          </div>
+        </footer>
+  </body>
+</html>
